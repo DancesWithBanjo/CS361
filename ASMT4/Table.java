@@ -11,31 +11,37 @@ public class Table<K, V>
     
     private static int[] primes = {11, 19, 41, 79, 163, 317, 641, 1279, 2557, 5119, 10243, 20479, 40961, 81919, 163841, 327673};
     private int size = 0; //track when putting in NEW item
-    private int pIndex;
-    private double lFactor = 0.0;
+    private int pIndex = 0;
+    private int prime = primes[pIndex];
+    private double lFactor = size/pIndex;
     private double maxLoad = 0.75;
     
     /**
      * Constructor for objects of class Table
      */
-    public Table()
+    public Table(int length)
     {
-        pIndex = primes[0];
-        for(int i = 0; i<pIndex; i++){
+        for(int i = 0; i<length; i++){
             table.add(i, new ArrayList<Node<K,V>>());
         }
     }
     
     public void put(K key, V value){
-        int hash = key.hashCode() % pIndex;
+        int hash = key.hashCode() % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
+        
+        boolean replaced = false;
         for(int i = 0; i<hashArray.size(); i++){
             if(hashArray.get(i).getKey().equals(key)){
                 hashArray.get(i).value = value;
+                replaced = true;
             }
         }
-   
-        hashArray.add(new Node(key,value));
+        
+        if(replaced){
+            hashArray.add(new Node(key,value));
+            size++;
+        }
         
         if(lFactor > maxLoad){
             
@@ -43,7 +49,7 @@ public class Table<K, V>
     }
     
     public V get(K key){
-        int hash = key.hashCode() % pIndex;
+        int hash = key.hashCode() % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         V val = null;
         
@@ -58,7 +64,7 @@ public class Table<K, V>
     }
     
     public boolean contains(K key){
-        int hash = key.hashCode() % pIndex;
+        int hash = key.hashCode() % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         boolean truth = false;
         
@@ -73,7 +79,7 @@ public class Table<K, V>
     }
     
     public void delete(K key){
-        int hash = key.hashCode() % pIndex;
+        int hash = key.hashCode() % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         
         for(int i = 0; i<hashArray.size(); i++){
@@ -88,7 +94,23 @@ public class Table<K, V>
     }
     
     private void rehash(){
+        pIndex++;
+        prime = primes[pIndex];
         
+        ArrayList<ArrayList<Node<K,V>>> tempTable = table;
+        for(int i = 0; i<prime; i++){
+            table.add(i, new ArrayList<Node<K,V>>());
+        }
+        
+        for(int i = 0; i<tempTable.size(); i++){
+            for(int j = 0; j<tempTable.get(i).size(); j++){
+                if(tempTable.get(i).get(j) == null){
+                } else{
+                    table.get(i).add(j, new Node(tempTable.get(i).get(j).getKey(), tempTable.get(i).get(j).getValue()));
+                    //This is definitely not right
+                }
+            }
+        }
     }
     
     private class Node<K, V>{
