@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PriorityQueue()
+comment0.text=\r\n\ Initializes\ the\ priority\ queue\r\n
+comment1.params=p
+comment1.target=void\ insert(Player)
+comment1.text=\r\n\ Inserts\ a\ player\ into\ the\ priority\ queue\ and\ then\ triggers\ swim\ to\ put\ them\ in\ the\ proper\ place.\r\n
+comment2.params=
+comment2.target=java.lang.String\ remove()
+comment2.text=\r\n\ Removes\ the\ top\ player\ and\ triggers\ sink\ to\ reorder\ the\ priority\ queue\r\n
+comment3.params=
+comment3.target=int\ getSize()
+comment3.text=\r\n\ returns\ the\ current\ size\ of\ the\ queue.\r\n
+comment4.params=
+comment4.target=void\ clear()
+comment4.text=\r\n\ Clears\ out\ the\ priority\ queue\ by\ setting\ it\ to\ a\ new\ list\r\n
+comment5.params=i
+comment5.target=void\ swim(int)
+comment5.text=\r\n\ Takes\ an\ object\ at\ the\ bottom\ of\ the\ queue\ and\ moves\ it\ up\ to\ its\ proper\ position\r\n\ Based\ on\ score\r\n
+comment6.params=i
+comment6.target=void\ sink(int)
+comment6.text=\r\n\ Places\ an\ object\ at\ the\ top\ of\ the\ queue\ and\ sinks\ it\ down\ to\ its\ proper\ position\r\n\ Based\ on\ score\r\n
+numComments=7

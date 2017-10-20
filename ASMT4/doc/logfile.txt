@@ -1,0 +1,116 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files (x86)\BlueJ\jdk\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4
+-d
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java...
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:38: error: class, interface, or enum expected
+        hashArray.add(new Node(key,value));
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:40: error: class, interface, or enum expected
+        if(lFactor > maxLoad){
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:45: error: class, interface, or enum expected
+    public V get(K key){
+           ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:47: error: class, interface, or enum expected
+        ArrayList<Node<K,V>> hashArray = table.get(hash);
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:48: error: class, interface, or enum expected
+        V val = null;
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:50: error: class, interface, or enum expected
+        for(int i = table.get(hash).size()-1; i>0; i--){
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:50: error: class, interface, or enum expected
+        for(int i = table.get(hash).size()-1; i>0; i--){
+                                              ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:50: error: class, interface, or enum expected
+        for(int i = table.get(hash).size()-1; i>0; i--){
+                                                   ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:53: error: class, interface, or enum expected
+            } else {
+            ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:55: error: class, interface, or enum expected
+            }
+            ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:58: error: class, interface, or enum expected
+    }
+    ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:60: error: class, interface, or enum expected
+    public boolean contains(K key){
+           ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:62: error: class, interface, or enum expected
+        ArrayList<Node<K,V>> hashArray = table.get(hash);
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:63: error: class, interface, or enum expected
+        boolean truth = false;
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:65: error: class, interface, or enum expected
+        for(int i = 0; i<hashArray.size(); i++){
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:65: error: class, interface, or enum expected
+        for(int i = 0; i<hashArray.size(); i++){
+                       ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:65: error: class, interface, or enum expected
+        for(int i = 0; i<hashArray.size(); i++){
+                                           ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:68: error: class, interface, or enum expected
+            } else {
+            ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:70: error: class, interface, or enum expected
+            }
+            ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:73: error: class, interface, or enum expected
+    }
+    ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:75: error: class, interface, or enum expected
+    public void delete(K key){
+           ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:77: error: class, interface, or enum expected
+        ArrayList<Node<K,V>> hashArray = table.get(hash);
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:79: error: class, interface, or enum expected
+        for(int i = 0; i<hashArray.size(); i++){
+        ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:79: error: class, interface, or enum expected
+        for(int i = 0; i<hashArray.size(); i++){
+                       ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:79: error: class, interface, or enum expected
+        for(int i = 0; i<hashArray.size(); i++){
+                                           ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:82: error: class, interface, or enum expected
+            }
+            ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:86: error: class, interface, or enum expected
+    public int size(){
+           ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:88: error: class, interface, or enum expected
+    }
+    ^
+C:\Users\Christian\Documents\Computer_Science\CS361\ASMT4\Table.java:111: error: class, interface, or enum expected
+}
+^
+29 errors
