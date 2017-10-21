@@ -1,17 +1,22 @@
 #BlueJ class context
-comment0.params=length
-comment0.target=Table(int)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Table\r\n
+comment0.params=
+comment0.target=Table()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Table.\r\n
 comment1.params=key\ value
 comment1.target=void\ put(java.lang.Object,\ java.lang.Object)
+comment1.text=\r\n\ Hashes\ the\ key\ and\ places\ the\ key-value\ pair\ in\ a\ position\ based\ on\ the\ hashcode.\r\n\ If\ the\ key\ is\ already\ there,\ it\ will\ replace\ the\ value\ stored\ in\ there\ with\ the\ new\ one.\r\n\ Triggers\ rehash()\ if\ the\ load\ factor\ is\ greater\ than\ 0.75.\r\n\ \r\n\ @params\ key\:\ the\ key\ linked\ with\ the\ value\r\n\ @params\ value\:\ the\ value\ assigned\ to\ the\ key\r\n
 comment2.params=key
 comment2.target=java.lang.Object\ get(java.lang.Object)
+comment2.text=\r\n\ Finds\ and\ returns\ the\ value\ of\ the\ input\ key.\r\n\ \r\n\ @params\ key\:\ the\ key\ who's\ value\ is\ being\ sought\ after\r\n
 comment3.params=key
 comment3.target=boolean\ contains(java.lang.Object)
+comment3.text=\r\n\ Checks\ to\ see\ if\ a\ key\ is\ in\ the\ hash\ table.\r\n\ \r\n\ @params\ key\:\ the\ key\ to\ check\ for\r\n
 comment4.params=key
 comment4.target=void\ delete(java.lang.Object)
+comment4.text=\r\n\ Removes\ the\ input\ key\ from\ the\ hash\ table.\r\n\ \r\n\ @params\ key\:\ the\ key\ to\ delete\r\n
 comment5.params=
 comment5.target=int\ size()
+comment5.text=\r\n\ Returns\ the\ total\ number\ of\ key-value\ pairs\ in\ the\ hash\ table\r\n
 comment6.params=
 comment6.target=void\ rehash()
 numComments=7

@@ -17,14 +17,14 @@ public class Table<K, V>
     private final double MAXLOAD = 0.75;
     
     /**
-     * Constructor for objects of class Table
-     * 
-     * @params length: a prime number used for the array's size
+     * Constructor for objects of class Table.
      */
-    public Table(int length)
+    public Table()
     {
-        for(int i = 0; i<length; i++){
-            table.add(i, new ArrayList<Node<K,V>>());
+        for(int i = 0; i<prime; i++){
+            System.out.println(prime);
+            System.out.println(i);
+            table.add(new ArrayList<Node<K,V>>());
         }
     }
     
