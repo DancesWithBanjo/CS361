@@ -7,12 +7,13 @@ import java.util.ArrayList;
  */
 public class Table<K, V>
 {
-    public ArrayList<ArrayList<Node<K,V>>> table;
+    public ArrayList<ArrayList<Node<K,V>>> table = new ArrayList<ArrayList<Node<K,V>>>();
     
     private static  final int[] primes = {11, 19, 41, 79, 163, 317, 641, 1279, 2557, 5119, 10243, 20479, 40961, 81919, 163841, 327673};
     private int size = 0; //track when putting in NEW item
     private int pIndex = 0;
     private int prime = primes[pIndex];
+    private final int POSHASH = 0x7fffffff;
     private double lFactor;
     private final double MAXLOAD = 0.75;
     
@@ -22,9 +23,7 @@ public class Table<K, V>
     public Table()
     {
         for(int i = 0; i<prime; i++){
-            System.out.println(prime);
-            System.out.println(i);
-            table.add(new ArrayList<Node<K,V>>());
+            table.add(i,new ArrayList<Node<K,V>>());
         }
     }
     
@@ -37,13 +36,14 @@ public class Table<K, V>
      * @params value: the value assigned to the key
      */
     public void put(K key, V value){
-        int hash = key.hashCode() % prime;
+        int hash = (key.hashCode() & POSHASH) % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         boolean replaced = false;
+        Node<K,V> node = new Node<K,V>(key, value);
         
         for(int i = 0; i<hashArray.size(); i++){
             if(hashArray.get(i).getKey().equals(key)){
-                hashArray.get(i).value = value;
+                hashArray.set(i,node);
                 replaced = true;
             }
         }
@@ -66,18 +66,17 @@ public class Table<K, V>
      * @params key: the key who's value is being sought after
      */
     public V get(K key){
-        int hash = key.hashCode() % prime;
+        int hash = (key.hashCode() & POSHASH) % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         V val = null;
         
-        for(int i = table.get(hash).size()-1; i>0; i--){
+        for(int i = hashArray.size()-1; i>=0; i--){
             if(hashArray.get(i).getKey().equals(key)){
                 val = hashArray.get(i).getValue();
-            } else {
-                return null;
+                return val;
             }
         }
-        return val;
+        return null;
     }
     
     /**
@@ -86,15 +85,13 @@ public class Table<K, V>
      * @params key: the key to check for
      */
     public boolean contains(K key){
-        int hash = key.hashCode() % prime;
+        int hash = (key.hashCode() & POSHASH) % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         boolean truth = false;
         
         for(int i = 0; i<hashArray.size(); i++){
             if(hashArray.get(i).getKey().equals(key)){
                 truth = true;
-            } else {
-                truth = false;
             }
         }
         return truth;
@@ -106,7 +103,7 @@ public class Table<K, V>
      * @params key: the key to delete
      */
     public void delete(K key){
-        int hash = key.hashCode() % prime;
+        int hash = (key.hashCode() & POSHASH) % prime;
         ArrayList<Node<K,V>> hashArray = table.get(hash);
         
         for(int i = 0; i<hashArray.size(); i++){
