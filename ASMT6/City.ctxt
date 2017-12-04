@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=name\ lat\ lon
+comment0.target=City(java.lang.String,\ double,\ double)
+comment1.params=
+comment1.target=java.util.ArrayList\ getAdjacencyList()
+numComments=2

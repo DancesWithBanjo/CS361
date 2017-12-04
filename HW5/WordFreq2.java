@@ -2,22 +2,31 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileReader;
 import java.lang.Integer;
+import java.util.TreeMap;
 
 /**
  * Write a description of class WordFreqs here.
  * 
- * @author (your name) 
+ * Christian Wiemer
+ * 
  */
-public class WordFreqs
+public class WordFreq2
 {
     /**
      * Constructor for objects of class WordFreqs
      */
-    public WordFreqs(){
+    public WordFreq2()
+    {
+        
     }
-    
+
     public static void main(String[] args){
-        Table<String, Integer> table = new Table<String, Integer>();
+        if(args.length == 0){
+            System.out.print("Please enter a file to read");
+            System.exit(1);
+        }
+        RedBlackTree<String, Integer> table = new RedBlackTree<String, Integer>();
+        
         Scanner scan;
         int keyVal = 1;
         
@@ -48,6 +57,7 @@ public class WordFreqs
                 return;
             }
             
+                        
             System.out.println("This text contains " + table.size() + " distinct words.");
             System.out.println("Please enter a word to get its frequency or hit enter to leave");
             Scanner input = new Scanner(System.in);
@@ -61,9 +71,30 @@ public class WordFreqs
                 } else if(answer.charAt(0) == '-'){
                     table.delete(answer.substring(1));
                     System.out.println(answer.substring(1) + " has been removed");
-                } else{
+                } else if(answer.charAt(0) == '>' && answer.length() > 1){
+                    if(table.findSuccessor(answer.substring(1)) == null){
+                        System.out.println("There is no word after " + "\"" + answer.substring(1) + "\"");
+                    } else {
+                        System.out.println("The word " + "\"" + table.findSuccessor(answer.substring(1)) + "\" comes after " + "\"" + answer.substring(1) + "\"");  
+                    }
+                } else if(answer.charAt(0) == '>'){ //last key
+                    System.out.println("The alphabetically last word is " + "\"" + table.getMaxKey() + "\"");
+                } else if(answer.charAt(0) == '<' && answer.length() > 1){
+                    if(table.findPredecessor(answer.substring(1)) == null){
+                        System.out.println("There is no word before " + "\"" + answer.substring(1) + "\"");
+                    } else {
+                        System.out.println("The word " + "\"" + table.findPredecessor(answer.substring(1)) + "\" comes before " + "\"" + answer.substring(1) + "\"");
+                    }
+                } else if(answer.charAt(0) == '<'){
+                    System.out.println("The alphabetically first word is " + "\"" + table.getMinKey() + "\"");
+                }
+                else{
                     answer = answer.toLowerCase();
-                    System.out.println("\"" + answer + "\" appears " + table.get(answer) + " times");
+                    if(table.get(answer) == 0){
+                        System.out.println("\"" + answer + "\" appears 0 times");
+                    } else {
+                        System.out.println("\"" + answer + "\" appears " + table.get(answer) + " times");
+                    }
                 }
             }
         }

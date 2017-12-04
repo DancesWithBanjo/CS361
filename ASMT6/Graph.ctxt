@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=numVertices
+comment0.target=Graph(int)
+comment0.text=\r\n\ Constructs\ a\ graph\ with\ a\ given\ number\ of\ vertices\r\n
+comment1.params=scanner
+comment1.target=Graph(java.util.Scanner)
+comment1.text=\r\n\ Constructs\ a\ graph\ with\ a\ given\ file\r\n
+comment2.params=v1\ v2\ weight
+comment2.target=void\ addEdge(int,\ int,\ double)
+comment2.text=\r\n\ Constructs\ and\ adds\ an\ edge\ to\ the\ graph\r\n\ \r\n\ @params\ v1\:\ the\ edges\ starting\ vertex\r\n\ @params\ v2\:\ the\ edges\ ending\ vertex\r\n\ @params\ weight\:\ the\ 'weight'\ of\ the\ edge\r\n
+comment3.params=edge
+comment3.target=void\ addEdge(Graph.Edge)
+comment3.text=\r\n\ Adds\ an\ edge\ to\ the\ graph\r\n\ \r\n\ @params\ edge\:\ the\ edge\ to\ add\r\n
+comment4.params=start\ goal
+comment4.target=boolean\ search(City,\ City)
+comment4.text=\r\n\ Searches\ for\ a\ path\ from\ a\ given\ start\ to\ a\ given\ finish\r\n\ \r\n\ @params\ start\:\ the\ starting\ vertex\r\n\ @params\ goal\:\ the\ vertex\ to\ search\ for\ a\ path\ to\r\n\ @return\:\ true\ if\ a\ path\ exists\ from\ start\ to\ goal\r\n
+comment5.params=lat1\ lon1\ lat2\ lon2
+comment5.target=double\ heuristic(double,\ double,\ double,\ double)
+numComments=6
